@@ -93,7 +93,7 @@ And here. | Okay. | I think we get it.
 const App = () => {
   const [value, setValue] = useState(defaultText);
   const [expend, setExpend] = useState(false);
-  const [previewExpend, setPreviewExpend] = useState(true);
+  const [previewExpend, setPreviewExpend] = useState(false);
 
   const handleChange = (e) => {
     setValue(e.target.value);
