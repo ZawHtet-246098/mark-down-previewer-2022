@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
 import { marked } from "marked";
-import { FaExpandArrowsAlt } from "react-icons/fa";
+
+import { FaExpandArrowsAlt, FaCompressArrowsAlt } from "react-icons/fa";
 
 const defaultText = `# Welcome to my React Markdown Previewer!
 
@@ -112,9 +113,15 @@ const App = () => {
         <div className={previewExpend ? "editorParent d-none" : "editorParent"}>
           <div className="d-flex py-1 editorheader">
             <h5 className="text-center">Editor</h5>
-            <button onClick={() => setExpend(!expend)}>
-              <FaExpandArrowsAlt id="editoricon" className="h5" />
-            </button>
+            {expend ? (
+              <button onClick={() => setExpend(false)}>
+                <FaCompressArrowsAlt id="editoricon" className="h5" />
+              </button>
+            ) : (
+              <button onClick={() => setExpend(true)}>
+                <FaExpandArrowsAlt id="editoricon" className="h5" />
+              </button>
+            )}
           </div>
           <textarea
             className="editor"
@@ -131,9 +138,15 @@ const App = () => {
         >
           <div className="d-flex previewheader py-1">
             <h5 className="text-center">Preview section</h5>
-            <button onClick={() => setPreviewExpend(!previewExpend)}>
-              <FaExpandArrowsAlt id="previewicon" className="h5" />
-            </button>
+            {previewExpend ? (
+              <button onClick={() => setPreviewExpend(false)}>
+                <FaCompressArrowsAlt id="previewicon" className="h5" />
+              </button>
+            ) : (
+              <button onClick={() => setPreviewExpend(true)}>
+                <FaExpandArrowsAlt id="previewicon" className="h5" />
+              </button>
+            )}
           </div>
 
           <div
